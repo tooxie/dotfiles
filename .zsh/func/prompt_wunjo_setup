@@ -95,7 +95,7 @@ prompt_wunjo_setup() {
 	pc[hist]='green'
 	pc[path]='Cyan'
 	pc[shortpath]='default'
-	pc[rc]='red'
+	pc[rc]='Red'
 	pc[scm_branch]='Cyan'
 	pc[scm_commitid]='Yellow'
 	pc[scm_status_dirty]='Red'
@@ -116,10 +116,9 @@ prompt_wunjo_setup() {
 	fi
 	PROMPT+="$pc[path]%(~.%~.%/)$pc[reset]"
 	PROMPT+="\$(prompt_wunjo_scm_status)"
-	PROMPT+="%(?.. $pc[rc]exited %1v$pc[reset])"
 	PROMPT+="
 "
-	PROMPT+="\$(prompt_wunjo_scm_branch)"
+	PROMPT+="%(?..$pc[rc]%1v $pc[reset])\$(prompt_wunjo_scm_branch)"
 	PROMPT+="$pc[#]%#$pc[reset] "
 
 	export PROMPT

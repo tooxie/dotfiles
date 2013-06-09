@@ -1,0 +1,7 @@
+"3.7 (created: 2013/04/03 18:20:07)
+
+set defsearch=duckduckgo
+set "editor=urxvt -e vim"
+source! /home/alvaro/.vimperatorrc.local
+
+" vim: set ft=vimperator:

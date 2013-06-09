@@ -1,0 +1,44 @@
+xterm*utf8:  1
+xterm*saveLines:  1000000
+xterm*background:  3F3F3F
+xterm*foreground:  white
+xterm*fastScroll:  1
+xterm*jumpScroll:  1
+xterm*VT100*faceName:  inconsolata
+xterm*VT100*wideFont:  inconsolata
+xterm*VT100*boldFont:  inconsolata
+xterm*VT100*faceSize:  16
+
+# urxvt
+# urxvt -bg "#2C2C2C" -fg "#DCDCCC" -fn "xft:inconsolata:pixelsize=16" +sb -sk -si -sw -sl 1000000
+# URxvt.background:  #2C2C2C
+URxvt.background:  #555753
+URxvt.color0: #3F3F3F
+URxvt.color1: #705050
+URxvt.color2: #60B48A
+URxvt.color3: #DFAF8F
+URxvt.color4: #9AB8D7
+URxvt.color5: #DC8CC3
+URxvt.color6: #8CD0D3
+URxvt.color7: #DCDCCC
+URxvt.color8: #709080
+URxvt.color9: #DCA3A3
+URxvt.color10: #72D5A3
+URxvt.color11: #F0DFAF
+URxvt.color12: #94CFF3
+URxvt.color13: #EC93D3
+URxvt.color14: #93E0E3
+URxvt.color15: #FFFFFF
+URxvt.font:  xft:inconsolata:pixelsize=20:antialias=true
+URxvt.foreground:  #DCDCDC
+URxvt.keysym.Control-Shift-c:   perl:clipboard:copy
+URxvt.keysym.Control-Shift-v:   perl:clipboard:paste
+URxvt.saveLines:  1000000
+URxvt.scrollBar:  0
+URxvt.scrollTtyKeypress:  1
+URxvt.scrollTtyOutput:  0
+URxvt.scrollWithBuffer:  1
+URxvt.utf8:  1
+URxvt.geometry:  86x35
+URxvt.iso14755_52: false
+URxvt.iso14755: false

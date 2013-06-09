@@ -1,0 +1,6 @@
+alias ..='cd ..'
+alias l='ls --color=auto'
+alias ls='ls --color=auto'
+alias rm='rm -i'
+alias s='ls --color=auto'
+alias sl='ls --color=auto'

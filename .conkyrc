@@ -1,0 +1,81 @@
+background yes
+use_xft yes
+xftfont inconsolata:size=10
+font inconsolata:size=10
+xftalpha 0.9
+update_interval 3.0
+total_run_times 0
+own_window no
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+#minimum_size 220 5
+#maximum_width 220
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color green
+alignment top_right
+gap_x 12
+gap_y 24
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase yes
+
+TEXT
+${color #CCC}
+${alignc}Machine ID
+${alignc}$nodename $kernel $machine
+
+Uptime: $alignr$uptime
+Battery: ${alignr}${battery BAT1}
+CPU: ${alignr}${freq} MHz (${acpitemp}C)
+# Processes: ${alignr}$processes ($running_processes running)
+Load: ${alignr}$loadavg (${cpu cpu1}%)
+${cpugraph cpu1 333333 CCCCCC -t}
+
+Disk I/O Read: ${alignr}${diskio_read sda}
+${diskiograph_read sda 333333 CCCCCC -t}
+Disk I/O Write: ${alignr}${diskio_write sda}
+${diskiograph_write sda 333333 CCCCCC -t}
+
+Ram ${alignr}$mem / $memmax ($memperc%)
+${membar 4}
+swap ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 4}
+
+Highest CPU $alignr CPU% MEM%
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+
+Highest MEM $alignr CPU% MEM%
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+
+Root: ${alignr}${fs_used /} / ${fs_size /}
+${fs_bar 4 /}
+Root: ${alignr}${fs_used /home} /home ${fs_size /home}
+${fs_bar 4 /home}
+#
+${if_up wlan0}
+# ${wireless_essid wlan0} ${wireless_link_bar wlan0}
+Down ${downspeed wlan0} k/s ${alignr}Up ${upspeed wlan0} k/s
+${downspeedgraph wlan0 25,107} ${alignr}${upspeedgraph wlan0 25,107}
+Total ${totaldown wlan0} ${alignr}Total ${totalup wlan0}
+${else}
+Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s
+${downspeedgraph eth0 25,107} ${alignr}${upspeedgraph eth0 25,107}
+Total ${totaldown eth0} ${alignr}Total ${totalup eth0}
+${endif}
+#MAC: ${alignr}${if_up wlan0}${addr wlan0}${else}${addr eth0}${endif}
+IP: ${alignr}${if_up wlan0}${addr wlan0}${else}${addr eth0}${endif}
+DNS: ${alignr}${nameserver 0}
+${alignr}${nameserver 1}

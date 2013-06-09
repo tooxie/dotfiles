@@ -1,0 +1,27 @@
+if [ -e ".git/config" ]; then
+    echo "
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color \"branch\"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color \"diff\"]
+	frag = magenta bold
+	meta = yellow bold
+	new = green bold
+	old = red bold
+[color \"status\"]
+	added = yellow
+	changed = green
+	untracked = cyan
+" >> .git/config
+fi
+# vim:set ft=sh:

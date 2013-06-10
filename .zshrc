@@ -48,3 +48,5 @@ setopt promptsubst
 
 # Use the wunjo prompt theme
 prompt wunjo
+
+source .zsh_aliases

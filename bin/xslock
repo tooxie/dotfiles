@@ -1,0 +1,4 @@
+#!/bin/sh
+xscreensaver &
+xscreensaver-command -lock
+# vim:set ft=sh:

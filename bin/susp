@@ -1,0 +1,5 @@
+#!/bin/sh
+xslock
+# alvaro ALL=NOPASSWD: /usr/sbin/pm-suspend
+sudo pm-suspend
+# vim:set ft=sh:

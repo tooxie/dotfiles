@@ -1,0 +1,9 @@
+bind blame h scroll-left
+bind blame l scroll-right
+
+bind generic F1 view-help
+bind generic g move-first-line
+bind generic G move-last-line
+
+bind main F !git fetch --all
+bind main R !git pull --rebase upstream master

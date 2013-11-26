@@ -3,5 +3,6 @@
 set defsearch=duckduckgo
 set "editor=urxvt -e vim"
 source! /home/alvaro/.vimperatorrc.local
+map ,, :nohl<CR>
 
 " vim: set ft=vimperator:

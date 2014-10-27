@@ -121,6 +121,13 @@ set number
 nmap <silent> ,n :set number!<CR>
 
 " Tab completion
+function! TabComp()
+   if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+       return "\<Tab>"
+   else
+       return "\<C-n>"
+   endif
+endfunction
 imap <Tab> <C-R>=TabComp()<CR>
 
 " Use the below highlight group when displaying bad whitespace is desired.

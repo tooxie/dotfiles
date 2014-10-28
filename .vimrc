@@ -272,7 +272,7 @@ nmap Y y$
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Col:\ %v
+set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ Col:\ %v
 " set statusline=%F%m%r%h%w%=[TIPO=%Y(%{&ff})]\ [LINEA=%l/%L][COL=%v][%p%%]
 
 

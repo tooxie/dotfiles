@@ -23,5 +23,7 @@ if [ -e ".git/config" ]; then
 	changed = green
 	untracked = cyan
 " >> .git/config
+else
+    echo "No .git directory found"
 fi
 # vim:set ft=sh:

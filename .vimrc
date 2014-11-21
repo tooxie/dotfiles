@@ -274,8 +274,8 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ \ CWD:\ %r%{getcwd()}%h\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
+" Remap VIM ) to "soft" bol
+map ) ^
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z

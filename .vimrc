@@ -291,7 +291,7 @@ if has("mac") || has("macunix")
 endif
 
 "Removing trailing spaces al pedo
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//ge
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

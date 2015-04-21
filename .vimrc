@@ -427,3 +427,7 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+" http://kien.github.io/ctrlp.vim/#installation
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+helptags ~/.vim/bundle/ctrlp.vim/doc
+let g:ctrlp_custom_ignore = 'node_modules$'

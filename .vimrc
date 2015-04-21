@@ -147,6 +147,9 @@ au FileType python match BadWhitespace /\s\+$/
 au FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 au FileType python match OverLength /\%81v.*/
 
+" Use Markdown filetype for .md files
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts

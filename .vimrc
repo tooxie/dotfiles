@@ -316,6 +316,9 @@ map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><r
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
+" http://ansaurus.com/question/1854956-how-to-make-vimgrep-do-word-match-search
+map <F3> :execute "noautocmd vimgrep /\\<" . expand("<cword>") . "\\>/gj **/*." .  expand("%:e") <Bar> cw<CR>
+
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
 " When you search with vimgrep, display your results in cope by doing:

@@ -68,6 +68,10 @@ nmap <leader>w :w!<cr>
 " Set 7 lines to the cursor - when moving vertically using j/k
 " set so=7
 
+" Allow modeline to overwrite these settings
+set modeline
+set modelines=5
+
 " Turn on the WiLd menu
 set wildmenu
 

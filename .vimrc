@@ -159,6 +159,8 @@ syntax enable
 
 colorscheme desert
 set background=dark
+set cursorline
+highlight CursorLine term=NONE cterm=NONE
 
 " Set extra options when running in GUI mode
 if has("gui_running")

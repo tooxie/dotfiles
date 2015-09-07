@@ -4,6 +4,9 @@ if [ -e ".git/config" ]; then
 	br = branch
 	ci = commit
 	co = checkout
+	pr = pull --rebase
+	rc = rebase --continue
+	ri = rebase -i
 	st = status
 [color]
 	branch = auto

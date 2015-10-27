@@ -1,10 +1,14 @@
 if [ -e ".git/config" ]; then
     echo "
 [alias]
+	amend = commit -a --amend --no-edit
 	br = branch
 	ci = commit
 	co = checkout
+	cp = cherry-pick
+	lp = log -p -c
 	pr = pull --rebase
+	ra = rebase --abort
 	rc = rebase --continue
 	ri = rebase -i
 	st = status

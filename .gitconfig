@@ -1,0 +1,47 @@
+[user]
+    email =
+    name =
+[color]
+    ui = auto
+[core]
+    pager = less -FMRiX
+    excludesfile = ~/.config/git/excludes
+[push]
+    default = simple
+[alias]
+    amend = commit --amend --no-edit
+    br = branch
+    ci = commit
+    co = checkout
+    cp = cherry-pick
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    lg = log -c
+    lp = log -p -c
+    pp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    pr = pull --rebase
+    ra = rebase --abort
+    rc = rebase --continue
+    ri = rebase -i
+    st = status
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    frag = magenta bold
+    meta = yellow bold
+    new = green bold
+    old = red bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[pull]
+    rebase = true
+[merge]
+    commit = no
+    ff = only

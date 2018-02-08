@@ -10,18 +10,23 @@
     default = simple
 [alias]
     amend = commit --amend --no-edit
-    br = branch
+    br = branch -vv
+    bd = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     ci = commit
     co = checkout
     cp = cherry-pick
     dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
-    lg = log -c
+    l = log -c
+    lno = log --name-only --pretty=short
     lp = log -p -c
     pp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     pr = pull --rebase
     ra = rebase --abort
     rc = rebase --continue
     ri = rebase -i
+    sh = stash
+    sp = stash pop
+    ss = status -s
     st = status
 [color]
     branch = auto

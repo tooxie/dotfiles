@@ -1,0 +1,1 @@
+cat $1 | python -mjson.tool | vim -c "setl filetype=javascript" -

@@ -1,0 +1,16 @@
+DOCKER_PS=`docker ps -aq`
+
+if [ ! -z "$DOCKER_PS" ]; then
+    docker stop $DOCKER_PS
+    docker rm -f $DOCKER_PS
+fi
+
+DOCKER_VOLUMES=`docker volume ls -qf dangling=true`
+if [ ! -z "$DOCKER_VOLUMES" ]; then
+    docker volume rm $DOCKER_VOLUMES
+fi
+
+DOCKER_IMAGES=`docker image ls -q`
+if [ ! -z "$DOCKER_IMAGES" ]; then
+    docker image rm $DOCKER_IMAGES
+fi

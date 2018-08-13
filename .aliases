@@ -1,0 +1,30 @@
+alias ..='cd ..'
+alias cp='cp -i'
+alias df='df -hT -x tmpfs -x devtmpfs'
+alias grep='grep --color=auto'
+alias k='kubectl'
+alias kcc='cat ~/.kube/config | grep current-context | cut -d" " -f2'
+alias mv='mv -i'
+alias rm='rm -i'
+alias tm='tmux att || tmux'
+alias tx='tmux att || tmux'
+
+case `uname` in
+  Darwin)
+    alias l='ls -G'
+    alias ll='ls -l -G'
+    alias ls='ls -G'
+    alias s='ls -G'
+    alias sl='ls -G'
+
+    alias restart-wifi='wifi off && wifi on'
+    alias wifi='networksetup -setairportpower en0'
+  ;;
+  Linux)
+    alias l='ls --color=auto'
+    alias ll='ls -l --color=auto'
+    alias ls='ls --color=auto'
+    alias s='ls --color=auto'
+    alias sl='ls --color=auto'
+  ;;
+esac

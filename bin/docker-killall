@@ -1,16 +1,16 @@
 DOCKER_PS=`docker ps -aq`
-
 if [ ! -z "$DOCKER_PS" ]; then
     docker stop $DOCKER_PS
     docker rm -f $DOCKER_PS
 fi
+docker container prune -f
 
 DOCKER_VOLUMES=`docker volume ls -qf dangling=true`
 if [ ! -z "$DOCKER_VOLUMES" ]; then
     docker volume rm $DOCKER_VOLUMES
 fi
 
-DOCKER_IMAGES=`docker image ls -q`
+DOCKER_IMAGES=`docker images -aq`
 if [ ! -z "$DOCKER_IMAGES" ]; then
-    docker image rm $DOCKER_IMAGES
+    docker image rm -f $DOCKER_IMAGES
 fi

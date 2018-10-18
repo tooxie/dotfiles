@@ -50,6 +50,32 @@ set history=700
 filetype plugin on
 filetype indent on
 
+" BEGIN Vundle
+filetype off                  " required by Vundle
+set nocompatible              " be iMproved, required by Vundle
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'hashivim/vim-terraform'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mbbill/undotree'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+filetype plugin indent on    " required by Vundle
+" END Vundle
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -85,7 +111,7 @@ set ruler
 set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-set hid
+" set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -149,6 +175,12 @@ au FileType python match OverLength /\%81v.*/
 
 " Use Markdown filetype for .md files
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" Set tab width for JS files
+autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=2 shiftwidth=2
+
+" Terraform
+autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=4 shiftwidth=4 expandtab
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

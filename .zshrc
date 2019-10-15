@@ -9,9 +9,6 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mou"
 
-# Disable AUTO_CD
-unsetopt -J
-
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -102,3 +99,7 @@ bindkey -M menuselect '^M' .accept-line
 
 set -o vi
 source $HOME/.aliases
+
+
+# Disable AUTO_CD
+unsetopt -J

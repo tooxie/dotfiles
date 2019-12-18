@@ -59,6 +59,7 @@ call vundle#begin()
 
 " Plugins
 Plugin 'airblade/vim-gitgutter'
+Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'hashivim/vim-terraform'
 Plugin 'kien/ctrlp.vim'
@@ -152,11 +153,11 @@ nmap <silent> ,n :set number!<CR>
 
 " Tab completion
 function! TabComp()
-    if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-        return "\<Tab>"
-    else
-        return "\<C-n>"
-    endif
+   if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+       return "\<Tab>"
+   else
+       return "\<C-n>"
+   endif
 endfunction
 imap <Tab> <C-R>=TabComp()<CR>
 
@@ -177,7 +178,7 @@ au FileType python match OverLength /\%81v.*/
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " Set tab width for JS files
-autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=4 shiftwidth=4 expandtab
 
 " Terraform
 autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=4 shiftwidth=4 expandtab
@@ -290,8 +291,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 try
-    set switchbuf=useopen,usetab,newtab
-    set stal=2
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
 catch
 endtry
 
@@ -325,10 +326,10 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-    nmap <D-j> <M-j>
-    nmap <D-k> <M-k>
-    vmap <D-j> <M-j>
-    vmap <D-k> <M-k>
+  nmap <D-j> <M-j>
+  nmap <D-k> <M-k>
+  vmap <D-j> <M-j>
+  vmap <D-k> <M-k>
 endif
 
 "Removing trailing spaces al pedo
@@ -439,25 +440,32 @@ endfunction
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
 
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
 
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
 
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
 endfunction
 
 " http://kien.github.io/ctrlp.vim/#installation
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 helptags ~/.vim/bundle/ctrlp.vim/doc
 let g:ctrlp_custom_ignore = 'node_modules$'
+
+" https://www.bugsnag.com/blog/tmux-and-vim
+" Vimux shortcuts
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>

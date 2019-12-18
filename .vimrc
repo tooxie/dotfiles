@@ -177,10 +177,10 @@ au FileType python match OverLength /\%81v.*/
 " Use Markdown filetype for .md files
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-" Set tab width for JS files
-autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=2 shiftwidth=2
+" JavaScript tab width
+autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=4 shiftwidth=4 expandtab
 
-" Terraform
+" Terraform tab width
 autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=4 shiftwidth=4 expandtab
 
 

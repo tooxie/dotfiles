@@ -1,3 +1,7 @@
+precmd() {
+    echo ''
+}
+
 okta_profile() {
     # Get everything after the '=' of the `aws_okta_profile` config in the credentials file
     AWS_OKTA_PROFILE=${$(cat ~/.aws/credentials | grep aws_okta_profile)##*=}

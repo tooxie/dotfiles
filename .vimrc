@@ -24,6 +24,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mbbill/undotree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-obsession'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle

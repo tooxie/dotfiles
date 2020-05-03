@@ -8,8 +8,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias tm='tmux att || tmux'
 alias tx='tmux att || tmux'
-alias wdn='nmcli radio wifi on'
-alias wup='nmcli radio wifi off'
 
 case `uname` in
   Darwin)
@@ -30,5 +28,7 @@ case `uname` in
     alias pastefromclipboard='xclip -selection c -o'
     alias s='ls --color=auto'
     alias sl='ls --color=auto'
+    alias wdn='nmcli radio wifi on'
+    alias wup='nmcli radio wifi off'
   ;;
 esac

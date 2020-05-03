@@ -1,3 +1,0 @@
-#!/bin/sh
-notify-send `python -c "print(27 * $1)"`
-# vim:set ft=sh:

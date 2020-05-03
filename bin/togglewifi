@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+WIFI_STATUS=`nmcli radio wifi`
+[[ "$WIFI_STATUS" == "enabled" ]] && nmcli radio wifi off || nmcli radio wifi on

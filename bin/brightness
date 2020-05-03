@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+import re
+import subprocess
+import sys
+
+def get_brightness():
+    xrandr = ["xrandr", "--current", "--verbose"]
+    output = subprocess.run(xrandr, capture_output=True).stdout
+    pattern = 'Brightness: ([0-9.]+)'
+
+    return float(re.search(pattern, str(output)).group(1))
+
+def set_brightness(level):
+    xrandr = ["xrandr", "--output", "LVDS1", "--brightness", str(level)]
+    subprocess.run(xrandr)
+
+def increase_brightness(step=0.1):
+    level = get_brightness() + step
+    if level > 1:
+        set_brightness(1)
+    else:
+        set_brightness(level)
+
+def decrease_brightness(step=0.1):
+    level = get_brightness() - step
+    if level < 0:
+        set_brightness(0)
+    else:
+        set_brightness(level)
+
+if __name__ == '__main__':
+    if sys.argv[1] == '+':
+        increase_brightness()
+    elif sys.argv[1] == '-':
+        decrease_brightness()

@@ -35,6 +35,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -141,6 +142,9 @@ autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=4 shiftwidth=4 expandtab
 
 " Terraform tab width
 autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=4 shiftwidth=4 expandtab
+
+" Go tab width
+autocmd BufNewFile,BufFilePre,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

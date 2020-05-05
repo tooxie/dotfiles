@@ -6,8 +6,9 @@ alias k='kubectl'
 alias kcc='cat ~/.kube/config | grep current-context | cut -d" " -f2'
 alias mv='mv -i'
 alias rm='rm -i'
+alias tf='terraform'
+alias tg='terragrunt'
 alias tm='tmux att || tmux'
-alias tx='tmux att || tmux'
 
 case `uname` in
   Darwin)

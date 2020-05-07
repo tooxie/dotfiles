@@ -40,11 +40,14 @@ case `uname` in
   ;;
 esac
 
-read -p "Path where the dotfiles repository should be cloned [$HOME/code/dotfiles]: " DOTFILES_DIR
-DOTFILES_DIR=${DOTFILES_DIR:-"$HOME/code/dotfiles"}
-if [[ ! -d "$DOTFILES_DIR/.git" ]]; then
-  mkdir -p "$DOTFILES_DIR"
-  git clone https://github.com/tooxie/dotfiles.git "$DOTFILES_DIR"
+DOTFILES_DIR=$PWD
+if [[ ! -d "$PWD/.git" ]]; then
+  read -p "Path where the dotfiles repository should be cloned [$HOME/code/dotfiles]: " DOTFILES_DIR
+  DOTFILES_DIR=${DOTFILES_DIR:-"$HOME/code/dotfiles"}
+  if [[ ! -d "$DOTFILES_DIR/.git" ]]; then
+    mkdir -p "$DOTFILES_DIR"
+    git clone https://github.com/tooxie/dotfiles.git "$DOTFILES_DIR"
+  fi
 fi
 
 

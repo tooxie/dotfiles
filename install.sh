@@ -72,14 +72,15 @@ for CONF in $CONF_FILES; do
 done
 
 OH_MY_ZSH_DIR="$HOME/.oh-my-zsh"
+OMZ_THEMES_DIR="custom/themes"
 if [[ ! -d "$OH_MY_ZSH_DIR" ]]; then
   export CHSH='yes'
   export RUNZSH='no'
   export KEEP_ZSHRC='no'
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  rm -f "$OH_MY_ZSH_DIR/custom/themes/example.zsh-theme"
-  for THEME in `ls "$DOTFILES_DIR/.oh-my-zsh/custom/themes/"`; do
-    ln -s "$DOTFILES_DIR/.oh-my-zsh/custom/themes/$THEME" "$OH_MY_ZSH_DIR/custom/themes"
+  rm -f "$OH_MY_ZSH_DIR/$OMZ_THEMES_DIR/example.zsh-theme"
+  for THEME in `ls "$DOTFILES_DIR/.oh-my-zsh/$OMZ_THEMES_DIR"`; do
+    ln -s "$DOTFILES_DIR/.oh-my-zsh/$OMZ_THEMES_DIR/$THEME" "$OH_MY_ZSH_DIR/$OMZ_THEMES_DIR"
   done
   rm -f "$HOME/.zshrc"
   ln -s "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"

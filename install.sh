@@ -9,7 +9,7 @@ case `uname` in
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     fi
 
-    PACKAGES="awscli git goenv htop ipython jq k9s n tfenv tgenv tmux zsh speedtest-cli"
+    PACKAGES="awscli git goenv htop ipython jq k9s n tfenv tgenv tmux zsh speedtest-cli wget"
     for PKG in $PACKAGES; do
       if ! brew list $PKG > /dev/null; then
         if [ "$PKG" = "tgenv" ]; then

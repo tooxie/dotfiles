@@ -30,6 +30,14 @@ case `uname` in
 
   Linux)
     PACKAGES="build-essential git curl zsh vim tmux xclip fonts-inconsolata speedtest-cli"
+    if ! [ -x "$(command i3)" ]; then
+      read -p "Install i3? [Y/n] " INSTALL_I3
+      case $INSTALL_I3 in
+        y|Y|"" )
+          PACKAGES="$PACKAGES i3"
+        ;;
+      esac
+    fi
     INSTALL_CMD="apt install --yes $PACKAGES"
     echo "Installing packages..."
     if sudo -v > /dev/null; then

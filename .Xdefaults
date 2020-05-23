@@ -1,57 +1,21 @@
-UX-Term*faceName: Inconsolata
-UX-Term*faceSize: 20
-UX-Term*rightScrollBar: true
-UX-Term*ScrollBar: true
-
-xterm*background: #555753
-xterm*boldFont: inconsolata
-xterm*faceName: Inconsolata
-xterm*faceSize: 16
-xterm*fastScroll: 1
-xterm*font: xft:inconsolata:pixelsize=16:antialias=true
-xterm*foreground: #DCDCDC
-xterm*jumpScroll: 1
-xterm*keysym*Control-Shift-c: perl:clipboard:copy
-xterm*keysym*Control-Shift-v: perl:clipboard:paste
-xterm*saveLines: 1000000
-xterm*scrollBar: 0
-xterm*scrollTtyKeypress: 1
-xterm*scrollTtyOutput: 0
-xterm*scrollWithBuffer: 1
-xterm*utf8: 1
-xterm*VT100*font: xft:inconsolata:pixelsize=16:antialias=true
-
-xterm*vt100.translations: #override \
+*background: #555753
+*boldFont: inconsolata
+*faceName: Inconsolata
+*faceSize: 16
+*fastScroll: 1
+*font: xft:inconsolata:pixelsize=16:antialias=true
+*foreground: #DCDCDC
+*jumpScroll: 1
+*keysym*Control-Shift-c: perl:clipboard:copy
+*keysym*Control-Shift-v: perl:clipboard:paste
+*saveLines: 1000000
+*scrollBar: 0
+*scrollKey: 1
+*scrollTtyKeypress: 1
+*scrollTtyOutput: 0
+*scrollWithBuffer: 1
+*utf8: 1
+*VT100*font: xft:inconsolata:pixelsize=16:antialias=true
+*vt100*translations: #override \
     Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
-
-URxvt.background: #555753
-URxvt.color0: #3F3F3F
-URxvt.color1: #705050
-URxvt.color2: #60B48A
-URxvt.color3: #DFAF8F
-URxvt.color4: #9AB8D7
-URxvt.color5: #DC8CC3
-URxvt.color6: #8CD0D3
-URxvt.color7: #DCDCCC
-URxvt.color8: #709080
-URxvt.color9: #DCA3A3
-URxvt.color10: #72D5A3
-URxvt.color11: #F0DFAF
-URxvt.color12: #94CFF3
-URxvt.color13: #EC93D3
-URxvt.color14: #93E0E3
-URxvt.color15: #FFFFFF
-URxvt.font: xft:inconsolata:pixelsize=20:antialias=true
-URxvt.foreground: #DCDCDC
-URxvt.keysym.Control-Shift-c: perl:clipboard:copy
-URxvt.keysym.Control-Shift-v: perl:clipboard:paste
-URxvt.saveLines: 1000000
-URxvt.scrollBar: 0
-URxvt.scrollTtyKeypress: 1
-URxvt.scrollTtyOutput: 0
-URxvt.scrollWithBuffer: 1
-URxvt.utf8: 1
-URxvt.geometry: 86x35
-URxvt.iso14755_52: false
-URxvt.iso14755: false

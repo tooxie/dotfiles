@@ -43,7 +43,7 @@ case `uname` in
     if sudo -v > /dev/null; then
       sudo $INSTALL_CMD
     else
-      su -c $INSTALL_CMD
+      su -c "$INSTALL_CMD"
     fi
   ;;
 esac

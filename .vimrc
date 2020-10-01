@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
+set mmp=5000
 
 " Enable filetype plugins
 filetype plugin on
@@ -18,11 +19,15 @@ call vundle#begin()
 " Plugins
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
+Plugin 'cespare/vim-toml'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fatih/vim-go'
 Plugin 'hashivim/vim-terraform'
-Plugin 'kien/ctrlp.vim'
+Plugin 'jvirtanen/vim-hcl'
 Plugin 'mbbill/undotree'
 Plugin 'pangloss/vim-javascript'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-obsession'
 
@@ -153,10 +158,11 @@ autocmd BufNewFile,BufFilePre,BufRead *.go set tabstop=4 shiftwidth=4 noexpandta
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
+colorscheme peachpuff
 set background=dark
 set cursorline
 highlight CursorLine term=NONE cterm=NONE
+highlight clear CursorLineNr
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -272,7 +278,7 @@ nmap Y y$
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ Col:\ %v
+set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ %l/%L:%v
 " set statusline=%F%m%r%h%w%=[TIPO=%Y(%{&ff})]\ [LINEA=%l/%L][COL=%v][%p%%]
 
 
@@ -432,3 +438,9 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
+
+" https://github.com/ryanoasis/vim-devicons/wiki/Extra-Configuration
+let g:WebDevIconsOS = 'Darwin'
+
+" https://github.com/fatih/vim-go-tutorial#imports
+let g:go_fmt_command = "goimports"

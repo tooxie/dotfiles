@@ -114,3 +114,5 @@ bindkey -M menuselect '^M' .accept-line
 
 # Disable AUTO_CD
 unsetopt -J
+
+qr() { qrencode "$1" -t ANSIUTF8 -o -; }

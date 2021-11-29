@@ -17,23 +17,34 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugins
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'aghareza/vim-gitgrep'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'cespare/vim-toml'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'fatih/vim-go'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hashivim/vim-terraform'
-Plugin 'jvirtanen/vim-hcl'
+Plugin 'jparise/vim-graphql'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'lepture/vim-velocity'
+Plugin 'Lilja/vim-gitgreppopup'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mbbill/undotree'
-Plugin 'pangloss/vim-javascript'
+Plugin 'neoclide/coc-prettier'
+Plugin 'neoclide/coc.nvim'
+Plugin 'yegappan/grep'
+
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-obsession'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
 " END Vundle
+
+set encoding=UTF-8
+:autocmd!
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -46,12 +57,17 @@ map <C-m> :NERDTreeFind<CR>
 set autoread
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
+" Load TypeScript extension for CoC
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,19 +153,19 @@ au FileType python match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
 au FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-au FileType python match OverLength /\%81v.*/
+au FileType python match OverLength /\%101v.*/
 
 " Use Markdown filetype for .md files
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-" JavaScript tab width
-autocmd BufNewFile,BufFilePre,BufRead *.js set tabstop=4 shiftwidth=4 expandtab
-
 " Terraform tab width
-autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=4 shiftwidth=4 expandtab
+autocmd BufNewFile,BufFilePre,BufRead *.tf set tabstop=2 shiftwidth=2 expandtab
 
 " Go tab width
 autocmd BufNewFile,BufFilePre,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+
+" Python tab width
+autocmd BufNewFile,BufFilePre,BufRead *.py set tabstop=4 shiftwidth=4 expandtab
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -158,7 +174,7 @@ autocmd BufNewFile,BufFilePre,BufRead *.go set tabstop=4 shiftwidth=4 noexpandta
 " Enable syntax highlighting
 syntax enable
 
-colorscheme peachpuff
+colorscheme default
 set background=dark
 set cursorline
 highlight CursorLine term=NONE cterm=NONE
@@ -198,8 +214,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -278,7 +294,7 @@ nmap Y y$
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %Y(%{&ff})\ %w\ %l/%L:%v
+set statusline=\ %{HasPaste()}%f%m%r%h\ %Y(%{&ff})\ %w\ %l/%L:%v
 " set statusline=%F%m%r%h%w%=[TIPO=%Y(%{&ff})]\ [LINEA=%l/%L][COL=%v][%p%%]
 
 
@@ -300,6 +316,9 @@ if has("mac") || has("macunix")
     vmap <D-j> <M-j>
     vmap <D-k> <M-k>
 endif
+
+" https://github.com/neoclide/coc-prettier
+autocmd BufWritePre *.js,*.json,*.ts,*.tsx :CocCommand prettier.formatFile
 
 "Removing trailing spaces al pedo
 autocmd BufWritePre * :%s/\s\+$//ge

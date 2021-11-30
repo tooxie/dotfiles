@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# This is an example file that shows how you can start a tmux session with a predefined 
+# set of windows connecting automatically to a remote host (in this case opening an ssh 
+# tunnel to access locally whatever is running in a cloud desktop). While very useful, I 
+# honestly hope I _never_ have to use this again.
+
+HOST="XXX.eu-central-1.compute.amazonaws.com"
+KEY="$HOME/cloud-desktop-key.pem"
+
+get_command() {
+    PORT=$1
+    REPO=$2
+
+    retval="ssh -i $KEY -L $PORT:localhost:$PORT -t ubuntu@$HOST \"cd $REPO; zsh --login\"; zsh -i"
+}
+
+tmux new-session -s laburo -d 'zsh --login -i'
+get_command 4000 /home/ubuntu/code/repo1
+tmux new-window  -t laburo:1 -n 4000 "$retval"
+get_command 4001 /home/ubuntu/code/repo2
+tmux new-window  -t laburo:2 -n 4001 "$retval"
+get_command 8010 /home/ubuntu/code/repo3
+tmux new-window  -t laburo:3 -n 8010 "$retval"
+get_command 8020 /home/ubuntu/code/repo4
+tmux new-window  -t laburo:4 -n 8020 "$retval"
+get_command 8080 /home/ubuntu/code/repo5
+tmux new-window  -t laburo:5 -n 8080 "$retval"
+
+tmux new-window  -t laburo:6 -n hasura 'cd ~/code/platform/services/graphql; sleep 2; npx hasura console --no-browser; zsh --login -i'
+
+tmux select-window -t laburo:1
+tmux -2 attach-session -t laburo
